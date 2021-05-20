@@ -503,7 +503,19 @@ class GradeBook{
         let sum = 0
         let noClasses = this.classes.length
         for(let i=0; i<noClasses; i++){
-            sum += this.classes[i].grade
+            let bruv = this.classes[i].letterGrade
+            if(bruv === 'A'){
+                sum += 4.0
+            }else if(bruv === 'B'){
+                sum += 3.0 
+            }else if(bruv === 'C'){
+                sum += 2.0
+            }else if(bruv === 'D'){
+                sum += 1.0
+            }else{
+                sum += 0.0
+            }
+            
         }
         this.gpa = sum / noClasses
     }
