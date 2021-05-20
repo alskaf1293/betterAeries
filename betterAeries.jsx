@@ -641,7 +641,6 @@ class Calendar{
     constructor(){
         this.calendar = []
         this.absences = []
-        this.stringCalendar = []
         this.numberOfDays = randInt(28,31)
 
     }
@@ -679,37 +678,11 @@ class Calendar{
             this.absences = bruh
         }
     }
-    setStringCalendar(){
-        if(this.calendar.length !== 0){
-            let dim = [this.calendar.length, this.calendar[0].length]
-            let bruh = []
-            
-            for(let i=0; i<dim[0]; i++){
-                let row = []
-                for(let j=0; j<dim[1]; j++){
-                    let elem = this.calendar[i][j]
-                    let sVersion = null;
-                    if(elem === null){
-                        sVersion = ".    "
-                    }else{
-                        sVersion = elem.toString()
-                    }
-                    if(sVersion.length === 1){
-                        sVersion += "   "
-                    }
-                    row.push(sVersion)
-                }
-                bruh.push(row)
-            }
-            this.stringCalendar = bruh
-        }
-    }
 }
 
 let cally = new Calendar()
 cally.setCalendar()
 cally.setAbsences()
-cally.setStringCalendar()
 
 let num = randInt(0, cally.calendar.length-1)
 let week = cally.calendar[num]
